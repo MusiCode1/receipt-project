@@ -8,6 +8,8 @@ const providers = Router();
 
 providers.get("/", async (req, res) => {
 
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
     const all_providers = await Providers.findAll();
 
     res.send(all_providers);
