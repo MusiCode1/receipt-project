@@ -8,8 +8,6 @@ const providers = Router();
 
 providers.get("/", async (req, res) => {
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-
     const all_providers = await Providers.findAll();
 
     res.send(all_providers);
@@ -49,12 +47,28 @@ providers.post("/:id", async (req, res) => {
     }, {
         where: {
             id,
-        },
+        }
     });
 
     const new_provider = await Providers.findByPk(id);
 
     res.send(new_provider);
+
+});
+
+providers.delete("/:id", async (req, res) => {
+
+    const { id } = req.params;
+
+    await Providers.destroy({
+        where: {
+            id
+        }
+    })
+
+    const all_providers = await Providers.findAll();
+
+    res.send(all_providers);
 
 });
 

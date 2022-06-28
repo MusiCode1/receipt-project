@@ -1,8 +1,13 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "sequelize": "^6.20.1",
     "sqlite3": "^5.0.8",
-    "ts-node": "^10.8.1"
+    "ts-node": "^10.8.1",
+    "vite-plugin-require": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
   }
 }

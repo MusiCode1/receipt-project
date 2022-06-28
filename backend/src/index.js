@@ -1,6 +1,6 @@
 
 const express = require("express");
-const { sequelize, models: { Receipts } } = require("./models/index");
+const { sequelize, models: { Providers } } = require("./models/index");
 
 const { api } = require("./routers/index");
 
@@ -27,6 +27,42 @@ const express_fn_promise = async () => {
 (async () => {
 
     await sequelize.sync({ force: true });
+
+    Providers.bulkCreate([
+        {
+            id: 1,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 2,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 3,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 4,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 5,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 6,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 7,
+            name: "Some provider",
+            address: "Address"
+        }, {
+            id: 8,
+            name: "Some provider",
+            address: "Address"
+        }
+    ]);
 
 /*     Receipt.create({
         name: "Receipt 1",
