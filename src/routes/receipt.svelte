@@ -1,0 +1,1 @@
+<h1 class="my-4">Receipt</h1>
