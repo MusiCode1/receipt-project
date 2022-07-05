@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { VitePluginNode } from "vite-plugin-node";
-import vitePluginRequire from "vite-plugin-require";
+//import requireTransform from "vite-plugin-require-transform";
+import requireTransform from "vite-plugin-require"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,12 +10,13 @@ export default defineConfig({
 
     svelte(),
 
-/*     vitePluginRequire(),
+    (requireTransform as any).default(),
 
-    VitePluginNode({
+    ...VitePluginNode({
       adapter: "express",
-      appPath: "../backend/src/index.js"
-    }) */
+      appPath: "../backend/src/index.js",
+      exportName: "app"
+    })
 
   ]
 })
