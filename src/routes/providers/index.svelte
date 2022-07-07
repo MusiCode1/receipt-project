@@ -8,6 +8,7 @@
 		CardTitle,
 		CardBody,
 		CardText,
+		CardImg,
 		Col,
 		Row,
 		FormGroup,
@@ -17,11 +18,9 @@
 
 	import { enhance } from '$lib/form';
 
-	type Provider = {
-		id: number;
-		name: string;
-		address: string;
-	};
+	import type { Provider } from '$lib/types';
+
+	import truck_img from '$lib/img/truck-svgrepo-com.svg';
 
 	let form: Provider = {
 		id: 0,
@@ -58,20 +57,27 @@
 	export let providers: Provider[];
 </script>
 
-<h1 class="my-4">ספקים</h1>
+<h1 class="my-4">Providers</h1>
 
-<Button color="light" class="mb-4 button-shadow" on:click={on_open_create_from}>➕</Button>
+<!-- <Button color="light" class="mb-4 button-shadow" >➕</Button> -->
+<a href="./providers/new" class="mb-4 btn button-shadow btn-light">➕</a>
 
 <Row>
 	{#each providers as provider}
 		{#if provider}
-			<Col sm="6" md="4" lg="3" xl="2" class="mb-4">
+			<Col sm="6" md="4" lg="3" class="mb-4">
 				<Card class="">
-					<CardHeader>
-						<CardTitle>
-							{provider.name}
-						</CardTitle>
-					</CardHeader>
+					{#if provider.avatar}
+						<img class="card-img avatar" src="./imges/{provider.avatar}" alt="provider icon" />
+					{:else}
+						<img class="card-img avatar" src={truck_img} alt="provider icon" />
+					{/if}
+
+					<!-- <CardHeader> -->
+					<CardTitle>
+						{provider.name}
+					</CardTitle>
+					<!-- </CardHeader> -->
 					<CardBody>
 						<CardText>
 							{provider.name}
@@ -135,6 +141,8 @@
 				<Input placeholder="Enter a value" type="text" bind:value={form.address} name="address" />
 			</FormGroup>
 
+			<input type="file" />
+
 			<input type="hidden" bind:value={form.id} name="id" />
 
 			<Button type="submit">OK</Button>
@@ -153,6 +161,9 @@
 		box-shadow: 0px 0px 10px 0px;
 		animation-name: example;
 		animation-duration: 1s;
+		border-radius: 20px;
+		align-items: center;
+		/* min-width: 260px; */
 	}
 
 	@keyframes example {
@@ -167,5 +178,16 @@
 
 	:global(.button-shadow) {
 		box-shadow: 0px 0px 5px 0px;
+	}
+
+	.avatar {
+		height: 200px;
+		width: 200px;
+		box-shadow: 0 10px 34px -15px rgb(0 0 0 / 24%);
+		border-radius: 50%;
+		margin: 10px;
+		background-color: aquamarine;
+		cursor: pointer;
+		object-fit: cover;
 	}
 </style>

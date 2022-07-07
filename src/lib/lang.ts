@@ -1,3 +1,3 @@
-ש = {
+export const a = {
     "providers": "ספקים"
 }

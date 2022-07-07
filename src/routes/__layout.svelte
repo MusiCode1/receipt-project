@@ -40,3 +40,9 @@
 	</Navbar>
     <slot></slot>
 </Container>
+
+<style>
+	:global(body) {
+		background-color: #d7d7d7;
+	}
+</style>

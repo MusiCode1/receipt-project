@@ -4,5 +4,5 @@
 
 בדוק ב- StackBlitz.com: 
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/MusiCode1/svelte-kit)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/MusiCode1/receipt-project)
 

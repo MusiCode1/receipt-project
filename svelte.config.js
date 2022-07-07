@@ -6,18 +6,23 @@ import adapter from '@sveltejs/adapter-node';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: preprocess({
+		sourceMap: true
+	}),
 
 	kit: {
 		adapter: adapter(),
 
 		vite: {
 			ssr: {
-				noExternal: ['@popperjs/core']
+				noExternal: ['@popperjs/core'],
+				
 			},
 			server: {
-				strictPort: false 
+				strictPort: false ,
+
 			}
+			
 		},
 
 		methodOverride: {
