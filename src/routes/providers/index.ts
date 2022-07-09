@@ -1,5 +1,4 @@
 import type { RequestHandlerOutput, RequestHandler } from "@sveltejs/kit";
-import truck_img from '$lib/img/truck-svgrepo-com.svg';
 import { save_img } from "$lib/save-file";
 import { prisma_client } from "$lib/db";
 
@@ -20,25 +19,6 @@ export const get: RequestHandler = async () => {
             providers: await provider.findMany()
         }
     }
-};
-
-export const post: RequestHandler = async ({ request }) => {
-
-    const form = await request.formData();
-
-    const id = Number(form.get("id"));
-
-    await provider.update({
-        where: {
-            id: id
-        },
-        data: {
-            name: String(form.get("name")),
-            address: String(form.get("address"))
-        }
-    })
-
-    return redirect;
 };
 
 export const del: RequestHandler = async ({ request }) => {

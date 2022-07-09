@@ -1,6 +1,7 @@
 
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-auto';
+import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,6 +11,7 @@ const config = {
 		sourceMap: true
 	}),
 
+
 	kit: {
 		adapter: adapter(),
 
@@ -18,6 +20,13 @@ const config = {
 				noExternal: ['@popperjs/core'],
 				
 			},
+			plugins: [
+				viteCommonjs({
+					include: [
+						"mime-types"
+					]
+				})
+			],
 			server: {
 				strictPort: false ,
 

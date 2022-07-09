@@ -12,8 +12,8 @@ datasource db {
 
 model Provider {
 
-  id Int @id @default(autoincrement())
-  name String
+  id      Int    @id @default(autoincrement())
+  name    String
   address String
-  avatar String
+  avatar  String
 }
